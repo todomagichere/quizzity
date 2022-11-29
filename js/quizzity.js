@@ -345,7 +345,7 @@ $(document).ready(function() {
     $.getJSON('geodata/countries.json').success(function(countries) {
         Quizzity.dbCountries = countries;
 
-        $.getJSON('geodata/cities-world.json', function(cities) {
+        $.getJSON('geodata/cities-capitals.json', function(cities) {
             Quizzity.dbCities = cities;
 
             $('#dialog').show();
