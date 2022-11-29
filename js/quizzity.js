@@ -87,8 +87,6 @@ Quizzity.prototype.newGame = function() {
 
     this.$panel.show();
     this.$panel.startAnimation('bounceIn');
-
-    ga('send', 'event', 'button', 'click', 'start-game');
 };
 
 Quizzity.prototype.showPoints = function() {
