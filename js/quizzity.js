@@ -152,11 +152,6 @@ Quizzity.prototype.showPoints = function() {
     this.$dialog.show();
     this.$dialog.startAnimation('zoomIn');
 
-    $.ajax({
-        type: 'POST',
-        url: 'php/log.php',
-        data: { guesses: JSON.stringify(this.cities) }
-    });
 };
 
 Quizzity.prototype.isGameActive = function() {
