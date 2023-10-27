@@ -104,6 +104,7 @@ body,
   border-top: 2px solid #333;
 }
 #github,
+#language,
 #paypal {
   position: absolute;
   font-family: 'Roboto Condensed', sans-serif;
@@ -122,12 +123,17 @@ body,
   font-size: 20px;
   background-color: rgba(255, 255, 255, 0.85);
 }
+#language a,
 #github a,
 #paypal a {
   text-decoration: none;
   color: black;
   pointer-events: auto;
 }
+#language {
+  bottom: 150px;
+}
+
 #paypal {
   bottom: 50px;
 }
@@ -203,6 +209,9 @@ body,
     display: none;
   }
   #github {
+    display: none;
+  }
+  #language {
     display: none;
   }
   #paypal {

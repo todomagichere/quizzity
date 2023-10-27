@@ -60,6 +60,13 @@ Quizzity.prototype.showCity = function() {
     this.startTime = new Date().getTime();
 };
 
+function getQueryParam(param) {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    return urlParams.get(param);
+}
+
+
 Quizzity.prototype.newGame = function() {
     this.removeMarkers();
 
@@ -334,14 +341,26 @@ $(document).ready(function() {
 
     game.initializeInterface();
 
+    var language = getQueryParam("lang");
+
+    switch (language) {
+        case 'es':
+            language = 'es'
+            break;
+        default:
+            language = 'en'
+            break;
+    }
+
     // Load JSON data (countries and cities)
-    $.getJSON('geodata/countries.json').success(function(countries) {
+    $.getJSON(`geodata/countries_${language}.json`).success(function(countries) {
         Quizzity.dbCountries = countries;
-
-        $.getJSON('geodata/cities-capitals.json', function(cities) {
-            Quizzity.dbCities = cities;
-
-            $('#dialog').show();
-        });
     });
+
+    $.getJSON(`geodata/cities-capitals_${language}.json`, function(cities) {
+        Quizzity.dbCities = cities;
+
+        $('#dialog').show();
+    });
+
 });
